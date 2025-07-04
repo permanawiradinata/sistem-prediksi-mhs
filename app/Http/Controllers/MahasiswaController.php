@@ -343,7 +343,7 @@ class MahasiswaController extends Controller
         $status_bekerja = strtoupper(trim($mahasiswa->status_bekerja));
         $status_menikah = strtolower($mahasiswa->status_menikah) === 'belum' ? 'BELUM' : 'MENIKAH';
 
-        $response = Http::post('http://127.0.0.1:5000/predict', [
+        $response = Http::post('https://web-production-3198a.up.railway.app/predict', [
             'user_id'        => Auth::id(),
             'status_bekerja' => $status_bekerja,
             'status_menikah' => $status_menikah,
@@ -576,7 +576,7 @@ class MahasiswaController extends Controller
             ];
         })->toArray();
 
-        $response = Http::post('http://127.0.0.1:5000/predict-batch', [
+        $response = Http::post('https://web-production-3198a.up.railway.app/predict-batch', [
             'user_id' => $userId,
             'records' => $records,
         ]);

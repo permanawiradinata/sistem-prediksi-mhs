@@ -53,7 +53,7 @@ class ModelController extends Controller
             'dataset',
             file_get_contents($path),
             $file->getClientOriginalName()
-        )->post('http://127.0.0.1:5000/retrain', [
+        )->post('https://web-production-3198a.up.railway.app/retrain', [
             'user_id' => Auth::id(), // Kirim user_id ke API Flask
         ]);
 
